@@ -1,7 +1,6 @@
 
 var tableData = data;
 
-
 var chosenDate = d3.select("#datetime");
 var button1 = d3.select("#filter-btn");
 
@@ -30,6 +29,8 @@ function fillTable(newData) {
     });
 
 }; 
+
+fillTable(data);
 
 
 
