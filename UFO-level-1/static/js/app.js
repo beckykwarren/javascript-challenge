@@ -1,33 +1,35 @@
-// from data.js
+
 var tableData = data;
 
-var inputDate = d3.select("#datetime");
-var button1 = d3.select("#filter-btn");
-// YOUR CODE HERE!
 
-button1.on("click",function(){
+var Form_Date = d3.select("#datetime");
+var Button = d3.select("#filter-btn");
 
-    date = inputDate.property("value");
-    var sighting = sightings.filter(ufo => ufo.datetime === date);
+Button.on('click',function(){
+    Date_Value = Form_Date.property("value");
+    var sighting = tableData.filter(ufo => ufo.datetime === Date_Value); 
+    fillTable(sighting)
+
+}); 
+
+function fillTable(newData) {
+    
     var tbody = d3.select("tbody");
     tbody.html("");
-    
-    sighting.map((sighting) =>
+    newData.map(( data) =>
     {
         var row = tbody.append("tr");
-        row.append("td").text(sighting.datetime);
-        row.append("td").text(TitleCase(sighting.city));
-        row.append("td").text(sighting.state.toUpperCase());
-        row.append("td").text(sighting.country.toUpperCase());
-        row.append("td").text(TitleCase(sighting.shape));
-        row.append("td").text(sighting.durationMinutes);
-        row.append("td").text(sighting.comments);
+        row.append("td").text(data.datetime);
+        row.append("td").text(data.city);
+        row.append("td").text(data.state);
+        row.append("td").text(data.country);
+        row.append("td").text(data.shape);
+        row.append("td").text(data.durationMinutes);
+        row.append("td").text(data.comments);
 
     });
-});
 
-
-
+}; 
 
 
 
