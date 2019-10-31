@@ -2,13 +2,13 @@
 var tableData = data;
 
 
-var Form_Date = d3.select("#datetime");
-var Button = d3.select("#filter-btn");
+var chosenDate = d3.select("#datetime");
+var button1 = d3.select("#filter-btn");
 
-Button.on('click',function(){
-    Date_Value = Form_Date.property("value");
-    var sighting = tableData.filter(ufo => ufo.datetime === Date_Value); 
-    fillTable(sighting)
+button1.on('click',function(){
+    dateValue = chosenDate.property("value");
+    var filteredData = tableData.filter(ufo => ufo.datetime === dateValue); 
+    fillTable(filteredData)
 
 }); 
 
